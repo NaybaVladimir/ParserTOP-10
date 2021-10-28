@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<form th:method="Get" th:action="@{/}">
+    <label for="dr">Выберите дату для отображения ТОП-10:</label>
+    <input type="date" name="dr" id="dr">
+    <br/>
+    <input type="submit" value="Показать">
+</form>
+<br/>
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>position</td>
+        <td>date</td>
+        <td>original name</td>
+        <td>year</td>
+        <td>rating</td>
+        <td>numberOfPeopleWhoVoted</td>
+
+    </tr>
+    <div th:each="film : ${films}">
+        <tr>
+            <td th:text="${film.getId()}">Id</td>
+            <td th:text="${film.getPosition()}">Id</td>
+            <td th:text="${film.getDate()}">date</td>
+            <td th:text="${film.getOriginalName()}">original name</td>
+            <td th:text="${film.getYear()}">year</td>
+            <td th:text="${film.getRating()}">rating</td>
+            <td th:text="${film.getNumberOfPeopleWhoVoted()}">getNumberOfPeopleWhoVoted()</td>
+        </tr>
+    </div>
+</table>
+
+</body>
+</html>
